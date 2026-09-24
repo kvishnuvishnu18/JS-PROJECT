@@ -1,4 +1,5 @@
 let search = document.getElementById("search");
+// let search = document.getElementById("searchBtn")
 let categories = [];
 
 
@@ -96,24 +97,35 @@ function showCategories(categoryList) {
 
 
 
-// SEARCH CATEGORY //
+let mealCards = document.getElementById("mealCards")
+let searchBtn = document.getElementById("search-Btn")
 
+searchBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
 
-search.addEventListener("input", () => {
+    let value = search.value.trim();
 
-    let value = search.value.toUpperCase();
+    mealCards.innerHTML=""
 
-    let filteredCategories = categories.filter(category => {
+    if(value===""){
+        return;
+    }
 
-        return category.strCategory
-            .toUpperCase()
-            .includes(value);
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
+    .then((res)=>res.json())
+    .then((data)=>{
+        if(!data.meals){
+            // mealCards.innerHTML="";
+        mealCards.innerHTML=`<h2>NO MEALS FOUND</h2>`
+        return;
+    }
 
-    });
-
-    showCategories(filteredCategories);
-
-});
-
-
-
+    data.meals.forEach((item)=>{
+        mealCards.innerHTML +=`<div class = "mealOne">
+        <img src="${item.strMealThumb}">
+        <p>${item.strArea}</p>
+        <h4>${item.strMeal}</h4>
+        </div>`
+    })
+    })
+})
