@@ -10,9 +10,9 @@ let searchBtn = document.getElementById("search-Btn");
 let mealTitle = document.querySelector(".mealTitle");
 
 
-// ======================================
+
 // FETCH CATEGORIES
-// ======================================
+
 
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
@@ -25,9 +25,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         categories = data.categories;
 
 
-        // ======================================
+        
         // HAMBURGER MENU
-        // ======================================
+        
 
         let menuOutput = "";
 
@@ -47,9 +47,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         categoriesContainer.innerHTML = menuOutput;
 
 
-        // ======================================
+        
         // SHOW CATEGORY CARDS
-        // ======================================
+        
 
         showCategories(categories);
 
@@ -68,9 +68,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
     });
 
 
-// ======================================
+
 // SHOW CATEGORY CARDS
-// ======================================
+
 
 function showCategories(categoryList) {
 
@@ -109,9 +109,9 @@ function showCategories(categoryList) {
 }
 
 
-// ======================================
+
 // SEARCH MEALS
-// ======================================
+
 
 searchBtn.addEventListener("click", (e) => {
 
@@ -133,9 +133,8 @@ searchBtn.addEventListener("click", (e) => {
     }
 
 
-    // ======================================
     // SEARCH API
-    // ======================================
+ 
 
     fetch(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(value)}`
@@ -146,9 +145,8 @@ searchBtn.addEventListener("click", (e) => {
         .then(data => {
 
 
-            // ======================================
             // NO MEALS FOUND
-            // ======================================
+           
 
             if (!data.meals) {
 
@@ -160,9 +158,9 @@ searchBtn.addEventListener("click", (e) => {
             }
 
 
-            // ======================================
+           
             // MEALS TITLE
-            // ======================================
+           
 
             mealTitle.innerHTML = `
                 <h1>MEALS</h1>
@@ -171,9 +169,8 @@ searchBtn.addEventListener("click", (e) => {
             `;
 
 
-            // ======================================
             // DISPLAY MEALS
-            // ======================================
+           
 
             data.meals.forEach(item => {
 

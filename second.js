@@ -7,9 +7,9 @@ let mealTitle = document.querySelector(".mealTitle");
 let mealDes = document.getElementById("mealDes");
 
 
-// ======================================
+
 // GET CATEGORY FROM URL
-// ======================================
+
 
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -18,9 +18,8 @@ const categoryName = urlParams.get("category");
 console.log("Category:", categoryName);
 
 
-// ======================================
 // LOAD ALL CATEGORIES
-// ======================================
+
 
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
@@ -31,9 +30,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         console.log("Categories:", data);
 
 
-        // ======================================
+       
         // CREATE HAMBURGER MENU
-        // ======================================
+      
 
         categoryList.innerHTML = "";
 
@@ -53,9 +52,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         });
 
 
-        // ======================================
+        
         // FIND SELECTED CATEGORY
-        // ======================================
+       
 
         const selectedCategory = data.categories.find(
             (category) =>
@@ -63,9 +62,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         );
 
 
-        // ======================================
+       
         // SHOW CATEGORY DESCRIPTION
-        // ======================================
+       
 
         if (selectedCategory) {
 
@@ -108,9 +107,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
     });
 
 
-// ======================================
+
 // GET MEALS FOR SELECTED CATEGORY
-// ======================================
+
 
 if (categoryName) {
 
@@ -125,9 +124,9 @@ if (categoryName) {
             console.log("Meals:", data);
 
 
-            // ======================================
+           
             // MEALS TITLE
-            // ======================================
+     
 
             mealTitle.innerHTML = `
 
@@ -138,16 +137,16 @@ if (categoryName) {
             `;
 
 
-            // ======================================
+           
             // CLEAR OLD MEALS
-            // ======================================
+           
 
             mealCard.innerHTML = "";
 
 
-            // ======================================
+         
             // NO MEALS
-            // ======================================
+            
 
             if (!data.meals) {
 
@@ -167,9 +166,9 @@ if (categoryName) {
             }
 
 
-            // ======================================
+            
             // DISPLAY MEALS
-            // ======================================
+           
 
             data.meals.forEach((meal) => {
 
