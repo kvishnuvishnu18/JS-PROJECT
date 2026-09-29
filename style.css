@@ -12,6 +12,7 @@
 body {
     background-color: #f5f5f5;
     font-family: Arial, Helvetica, sans-serif;
+    color: #111;
 }
 
 
@@ -60,7 +61,7 @@ nav {
 
 .div1 h1 {
 
-    font-size: 16px;
+    font-size: 30px;
 
     margin: 0;
 
@@ -94,9 +95,9 @@ nav {
 
 .hero {
 
-    height: 430px;
+    height: 630px;
 
-    background-image: url("./imgs/banner.jpeg");
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("./imgs/banner.jpeg");
 
     background-position: center;
 
@@ -393,7 +394,12 @@ nav {
     color: #E16120;
 }
 
-
+#search-Btn i{
+    background-color: #E16120;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+}
 .mealOne{
     background-color: white;
     border-radius: 8px;
@@ -407,15 +413,20 @@ nav {
     object-fit: cover;
 
 }
-.mealOne h4{
-    padding: 10px 15px 0;
+.mealOne h5{
+    /* padding: 10px 15px 0; */
     margin: 0;
 }
 .mealOne p{
-    padding: 1 15px 10px;
+    padding: 1 5px 10px;
     background-color: white;
+    color: #E16120;
 }
-.meal line{
+
+/* .meal-title{
+
+}  */
+.mealline{
     width: 82px;
     height: 4px;
     background-color: red;
@@ -424,4 +435,78 @@ nav {
 .mealTitle{
     padding: 20px;
     background-color: white;
+}
+.meal-category{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: #E16120;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: small;
+}
+
+.itemCheck{
+    text-decoration: none;
+    color: black;
+}
+.meal-line{
+    background-color: #E16120;
+    height: 4px;
+    width: 60px;
+    margin-top: 10px;
+}
+#mealCards{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 25px;
+    /* padding: 20px; */
+    line-height: 20px;
+
+}
+.mealOne{
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+}
+.mealTitle{
+    padding: 20px;
+    background-color: white;
+}
+.mealTitle h1{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #111;
+}
+
+
+
+.menu-category {
+
+    display: block;
+
+    padding: 12px 15px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 14px;
+
+    color: #666;
+
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.menu-category:hover {
+    background-color: #f5f5f5;
+    color: #E16120;
 }

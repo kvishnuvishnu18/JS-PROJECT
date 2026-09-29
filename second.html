@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEAL FINDER WEBSITE</title>
+
+    <link rel="stylesheet" href="second.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="div1">
+
+            <img src="imgs/home.jpeg
+            " alt="Meal Finder Logo">
+
+            <a href="index.html" class="mealFinder">
+                <a href="index.html" class="heading"><h2>MEAL FINDER</h2></a>
+            </a>
+
+        </div>
+
+
+        <!-- HAMBURGER BUTTON -->
+        <button class="btn hamburger-btn"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </nav>
+
+
+    <!-- RIGHT OFFCANVAS -->
+    <div class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+
+        <div class="offcanvas-header">
+
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">
+                MEAL FINDER
+            </h5>
+
+            <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close">
+            </button>
+
+        </div>
+
+
+        <div class="offcanvas-body">
+
+            <div id="categoryList"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH SECTION -->
+    <section>
+
+        <div class="div2">
+
+            <input type="search"
+                placeholder="Search your Recipies..."
+                id="search">
+
+            <a href="" id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+            <h1>What are your favorite cuisines?</h1>
+
+            <p>PERSONALIZE YOUR EXPERIENCE</p>
+
+        </div>
+
+    </section>
+
+
+    <br><br>
+
+
+    <!-- CATEGORY DESCRIPTION -->
+    <div id="mealDes"></div>
+
+
+    <!-- MEALS TITLE -->
+    <div class="mealTitle"></div>
+
+
+    <!-- MEAL CARDS -->
+    <div id="meal-card"></div>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Your JavaScript -->
+    <script src="second.js"></script>
+
+</body>
+
+</html>

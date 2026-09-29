@@ -1,10 +1,18 @@
 let search = document.getElementById("search");
-// let search = document.getElementById("searchBtn")
+
 let categories = [];
 
+let categoriesContainer = document.getElementById("categories");
+let categoryCards = document.getElementById("categoryCards");
 
-// FETCH CATEGORIES //
+let mealCards = document.getElementById("mealCards");
+let searchBtn = document.getElementById("search-Btn");
+let mealTitle = document.querySelector(".mealTitle");
 
+
+// ======================================
+// FETCH CATEGORIES
+// ======================================
 
 fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
@@ -14,55 +22,55 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
         console.log(data);
 
-        // Get categories from API //
         categories = data.categories;
 
 
-        
-        // HAMBURGER MENU //
-       
+        // ======================================
+        // HAMBURGER MENU
+        // ======================================
 
         let menuOutput = "";
 
         categories.forEach(category => {
 
             menuOutput += `
-                <div class="menu-category">
+                <a
+                    href="second.html?category=${encodeURIComponent(category.strCategory)}"
+                    class="menu-category"
+                >
                     ${category.strCategory}
-                </div>
+                </a>
             `;
 
         });
 
-        document.getElementById("categories").innerHTML = menuOutput;
+        categoriesContainer.innerHTML = menuOutput;
 
 
-       
-        // SHOW CATEGORY CARDS //
-       
+        // ======================================
+        // SHOW CATEGORY CARDS
+        // ======================================
 
         showCategories(categories);
 
     })
 
-    // ERROR //
-
-
     .catch(error => {
 
         console.log(error);
 
-        document.getElementById("categories").innerHTML =
+        categoriesContainer.innerHTML =
             "Failed to load categories";
 
-        document.getElementById("categoryCards").innerHTML =
+        categoryCards.innerHTML =
             "Failed to load categories";
 
     });
 
 
-// FUNCTION TO SHOW CARDS //
-
+// ======================================
+// SHOW CATEGORY CARDS
+// ======================================
 
 function showCategories(categoryList) {
 
@@ -71,14 +79,18 @@ function showCategories(categoryList) {
     categoryList.forEach(category => {
 
         cardOutput += `
+            
             <div class="food-card">
 
                 <div class="image-container">
 
-                    <a href="">
+                    <a href="second.html?category=${encodeURIComponent(category.strCategory)}">
+
                         <img
                             src="${category.strCategoryThumb}"
-                            alt="${category.strCategory}">
+                            alt="${category.strCategory}"
+                        >
+
                     </a>
 
                     <span>
@@ -88,44 +100,124 @@ function showCategories(categoryList) {
                 </div>
 
             </div>
+
         `;
 
     });
 
-    document.getElementById("categoryCards").innerHTML = cardOutput;
+    categoryCards.innerHTML = cardOutput;
 }
 
 
+// ======================================
+// SEARCH MEALS
+// ======================================
 
-let mealCards = document.getElementById("mealCards")
-let searchBtn = document.getElementById("search-Btn")
+searchBtn.addEventListener("click", (e) => {
 
-searchBtn.addEventListener("click",(e)=>{
     e.preventDefault();
 
     let value = search.value.trim();
 
-    mealCards.innerHTML=""
 
-    if(value===""){
+    // Clear previous results
+
+    mealCards.innerHTML = "";
+    mealTitle.innerHTML = "";
+
+
+    // Empty search
+
+    if (value === "") {
         return;
     }
 
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`)
-    .then((res)=>res.json())
-    .then((data)=>{
-        if(!data.meals){
-            // mealCards.innerHTML="";
-        mealCards.innerHTML=`<h2>NO MEALS FOUND</h2>`
-        return;
-    }
 
-    data.meals.forEach((item)=>{
-        mealCards.innerHTML +=`<div class = "mealOne">
-        <img src="${item.strMealThumb}">
-        <p>${item.strArea}</p>
-        <h4>${item.strMeal}</h4>
-        </div>`
-    })
-    })
-})
+    // ======================================
+    // SEARCH API
+    // ======================================
+
+    fetch(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(value)}`
+    )
+
+        .then(res => res.json())
+
+        .then(data => {
+
+
+            // ======================================
+            // NO MEALS FOUND
+            // ======================================
+
+            if (!data.meals) {
+
+                mealCards.innerHTML = `
+                    <h2>NO MEALS FOUND</h2>
+                `;
+
+                return;
+            }
+
+
+            // ======================================
+            // MEALS TITLE
+            // ======================================
+
+            mealTitle.innerHTML = `
+                <h1>MEALS</h1>
+
+                <div class="meal-line"></div>
+            `;
+
+
+            // ======================================
+            // DISPLAY MEALS
+            // ======================================
+
+            data.meals.forEach(item => {
+
+                mealCards.innerHTML += `
+
+                    <a href="#" class="itemCheck">
+
+                        <div class="mealOne">
+
+                            <img
+                                src="${item.strMealThumb}"
+                                alt="${item.strMeal}"
+                            >
+
+                            <p>
+                                ${item.strArea}
+                            </p>
+
+                            <h5>
+                                ${item.strMeal}
+                            </h5>
+
+                            <span class="meal-category">
+                                ${item.strCategory}
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                `;
+
+            });
+
+        })
+
+        .catch(error => {
+
+            console.log(error);
+
+            mealCards.innerHTML = `
+                <h2>Something went wrong</h2>
+            `;
+
+        });
+
+});

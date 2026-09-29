@@ -1,0 +1,464 @@
+/*
+   RESET
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+}
+
+/* 
+   NAVBAR
+ */
+.heading{
+    color: white;
+    text-decoration: none;
+}
+nav {
+    height: 60px;
+    background-color: #E16120;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.div1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.div1 img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.mealFinder {
+    text-decoration: none;
+    color: white;
+}
+
+.mealFinder h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.hamburger-btn {
+    border: none !important;
+    background: transparent !important;
+    color: white !important;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.hamburger-btn:focus {
+    box-shadow: none !important;
+}
+
+/* 
+   OFFCANVAS
+ */
+
+.offcanvas {
+    width: 280px !important;
+}
+
+.offcanvas-header {
+    background-color: #E16120;
+    color: white;
+}
+
+.offcanvas-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.offcanvas-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.offcanvas-body {
+    padding: 0;
+}
+
+.menu-category {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+.menu-category:hover {
+    background-color: #f5f5f5;
+    color: #E16120;
+}
+
+/*
+   HERO / SEARCH SECTION
+ */
+
+section {
+    height: 630px;
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("./imgs/banner.jpeg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+/* Dark overlay */
+
+section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Content */
+
+.div2 {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Search input */
+
+#search {
+    width: 300px;
+    height: 50px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 30px;
+
+    padding: 0 20px;
+
+    font-size: 14px;
+}
+
+#search::placeholder {
+    color: #888;
+}
+
+/* Search button */
+
+#searchBtn {
+    display: inline-flex;
+
+    width: 50px;
+    height: 50px;
+
+    margin-left: 8px;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: white;
+}
+
+#searchBtn i {
+    background-color: #E16120;
+    color: white;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+}
+
+/* Hero heading */
+
+.div2 h1 {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Hero paragraph */
+
+.div2 p {
+    font-size: 12px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* 
+   CATEGORY DESCRIPTION
+*/
+
+#mealDes {
+    margin: 30px 20px 10px;
+}
+
+.category-description {
+    margin: 0;
+    padding: 20px;
+
+    border: 1px solid #E16120;
+    background-color: white;
+}
+
+.category-description h2 {
+    color: #E16120;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.category-description p {
+    font-size: 16px;
+    color: #555;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/*
+   MEAL TITLE
+*/
+
+.mealTitle {
+    padding: 30px 20px 10px;
+    background-color: #f5f5f5;
+}
+
+.mealTitle h1 {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #111;
+}
+
+.meal-line {
+    background-color: #E16120;
+
+    height: 4px;
+    width: 60px;
+
+    margin-top: 10px;
+}
+
+.mealline {
+    width: 82px;
+    height: 4px;
+
+    background-color: #E16120;
+
+    margin-top: 10px;
+}
+
+/* 
+   MEAL CARD GRID
+ */
+
+#meal-card {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 25px;
+
+    padding: 20px;
+}
+
+/* 
+   MEAL CARD
+ */
+
+.meal {
+    width: 100%;
+    height: 260px;
+
+    background-color: white;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s ease;
+
+    cursor: pointer;
+}
+
+.meal:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Meal image */
+
+.meal img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Meal name */
+
+.meal h3 {
+    font-size: 18px;
+
+    margin: 12px 5px 0;
+
+    color: #222;
+}
+
+/*
+   MEAL CATEGORY LABEL
+*/
+.meal-category {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    text-decoration: none;
+
+    color: #E16120;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    padding: 5px 8px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+/* 
+   MEAL LINK
+ */
+
+.itemCheck {
+    text-decoration: none;
+    color: black;
+}
+
+.itemCheck:hover {
+    color: #E16120;
+}
+
+/*
+   HR LINE
+ */
+
+.hrLine {
+    margin-top: 2px;
+    color: #555;
+}
+
+/*
+   OLD MEAL CARD SUPPORT
+ */
+
+#mealCards {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 25px;
+
+    line-height: 20px;
+}
+
+.mealOne {
+    position: relative;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.mealOne img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+}
+
+.mealOne h5 {
+    margin: 0;
+}
+
+.mealOne p {
+    padding: 5px 10px 10px;
+
+    background-color: white;
+
+    color: #E16120;
+}
+
+.menu-category {
+    display: block;
+    padding: 12px 15px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 14px;
+
+    color: #666;
+
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.menu-category:hover {
+    background-color: #f5f5f5;
+    color: #E16120;
+}
