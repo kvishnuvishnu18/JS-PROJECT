@@ -64,49 +64,36 @@
 
 
 
-    <!--  OFFCANVAS  -->
+    <!-- OFFCANVAS -->
 
-    <div
-        class="offcanvas offcanvas-end" 
-        tabindex="-1" 
-        id="offcanvasRight" 
-        aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="offcanvasRight">
 
+    <!-- CLOSE BUTTON -->
 
-        <!-- OFFCANVAS HEADER -->
+    <button
+        type="button"
+        class="close-menu"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close">
 
-        <div class="offcanvas-header">
+        ×
 
-           
-
-
-         <button
-            type="button"
-            class="exact-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close">
-
-           <i class="fa-regular fa-circle-xmark"></i>
-
-         </button>
-
-        </div>
+    </button>
 
 
+    <!-- CATEGORY MENU -->
 
-        <!-- OFFCANVAS BODY -->
+    <div class="offcanvas-body">
 
-        <div class="offcanvas-body">
-
-            <div id="categories">
-
-                Loading...
-
-            </div>
-
+        <div id="categories">
+            Loading...
         </div>
 
     </div>
+
+</div>
 
 
 
@@ -201,7 +188,7 @@
     </script>
 
 
-    <!-- YOUR JS -->
+    
 
     <script src="script.js"></script>
 
