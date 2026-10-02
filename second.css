@@ -29,6 +29,11 @@ nav {
     align-items: center;
     padding: 0 20px;
     color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
 }
 
 .div1 {
@@ -304,27 +309,18 @@ section::before {
 .meal {
     width: 100%;
     height: 260px;
-
     background-color: white;
-
     text-align: center;
-
     margin-bottom: 20px;
-
     border-radius: 10px;
-
     overflow: hidden;
-
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-
     transition: 0.3s ease;
-
     cursor: pointer;
 }
 
 .meal:hover {
     transform: translateY(-5px);
-
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -333,11 +329,8 @@ section::before {
 .meal img {
     width: 100%;
     height: 200px;
-
     object-fit: cover;
-
     display: block;
-
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -433,6 +426,7 @@ section::before {
 
 .mealOne h5 {
     margin: 0;
+    text-decoration: none;
 }
 
 .mealOne p {
@@ -462,3 +456,7 @@ section::before {
     background-color: #f5f5f5;
     color: #E16120;
 }
+ .hi{
+    text-decoration: none;
+    color: inherit;
+ }

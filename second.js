@@ -174,18 +174,18 @@ if (categoryName) {
 
                 mealCard.innerHTML += `
 
-                    <div class="meal">
+                   <a  class ="hi"href="third.html?id=${meal.idMeal}"><div class="meal">
 
                         <img
                             src="${meal.strMealThumb}"
                             alt="${meal.strMeal}"
                         >
 
-                        <h3>
+                        <h3 >
                             ${meal.strMeal}
                         </h3>
 
-                    </div>
+                    </div> </a>
 
                 `;
 

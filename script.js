@@ -35,10 +35,10 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
             menuOutput += `
                 <a
-                    href="second.html?category=${encodeURIComponent(category.strCategory)}"
-                    class="menu-category"
+                     href="second.html?category=${encodeURIComponent(category.strCategory)}"
+                     class="menu-category"
                 >
-                    ${category.strCategory}
+                     ${category.strCategory}
                 </a>
             `;
 
@@ -93,7 +93,7 @@ function showCategories(categoryList) {
 
                     </a>
 
-                    <span>
+                    <span class="one">
                         ${category.strCategory}
                     </span>
 
@@ -176,7 +176,7 @@ searchBtn.addEventListener("click", (e) => {
 
                 mealCards.innerHTML += `
 
-                    <a href="#" class="itemCheck">
+                    <a href="third.html?id=${item.idMeal}" class="itemCheck">
 
                         <div class="mealOne">
 
